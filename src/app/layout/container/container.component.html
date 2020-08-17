@@ -1,3 +1,16 @@
-<div>
-
+<div class="main-container">
+    <stw-topbar></stw-topbar>
+    <div class="view-wrapper">
+        <mat-sidenav-container class="sidenav-container">
+            <mat-sidenav
+                mode="side"
+                [(opened)]="opened">
+                <stw-sidebar-menu [items]="menuItems">
+                </stw-sidebar-menu>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <router-outlet></router-outlet>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
 </div>

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'sidebar-menu',
-  templateUrl: './sidebar-menu.component.html',
-  styleUrls: ['./sidebar-menu.component.scss']
+    selector: 'stw-sidebar-menu',
+    templateUrl: './sidebar-menu.component.html',
+    styleUrls: ['./sidebar-menu.component.scss']
 })
 export class SidebarMenuComponent implements OnInit {
+    @Input() menuItems;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

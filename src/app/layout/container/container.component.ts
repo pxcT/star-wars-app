@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ContainerComponent implements OnInit {
+    public opened = true;
+    public menuItems = [];
+
     constructor() { }
 
     ngOnInit() { }

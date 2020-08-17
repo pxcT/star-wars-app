@@ -21,6 +21,12 @@
       ],
       "@app-layout/*": [
           "app/layout/*"
+      ],
+      "@app-shared/*": [
+          "app/shared/*"
+      ],
+      "@app-planets/*": [
+          "app/planets/*"
       ]
     }
   },
