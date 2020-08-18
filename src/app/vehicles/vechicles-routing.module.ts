@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+// Components
 import { VehiclesDashboardComponent } from '@app-vehicles/vehicles-dashboard/vehicles-dashboard.component';
+
+// Configs
 import { VEHICLES_ROUTES } from '@app-vehicles/vehicles.routes';
 
 @NgModule({
