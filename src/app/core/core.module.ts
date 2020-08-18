@@ -7,6 +7,11 @@ export function throwIfAlreadyLoaded(parentModule: any, moduleName: string) {
   }
 }
 
+/**
+ * Side Note: I've added the api.service, and loading.service in the core folder but now in this module
+ * because I'm using inject in 'root' (which has better performance because of the Angular Tree Shaking Providers)
+ * Will keep the core module for future interceptors
+ */
 @NgModule({
     imports: [],
     exports: [],

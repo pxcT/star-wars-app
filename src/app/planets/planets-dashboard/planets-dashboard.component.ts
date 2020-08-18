@@ -1,4 +1,3 @@
-import { PlanetsService } from '@app-planets/planets.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetsDashboardComponent implements OnInit {
 
-    constructor(private planetsService: PlanetsService) { }
+    constructor() { }
 
     ngOnInit(): void {
     }
