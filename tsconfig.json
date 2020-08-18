@@ -27,6 +27,15 @@
       ],
       "@app-planets/*": [
           "app/planets/*"
+      ],
+      "@app-home/*": [
+          "app/home/*"
+      ],
+      "@app-people/*": [
+          "app/people/*"
+      ],
+      "@app-vehicles/*": [
+          "app/vehicles/*"
       ]
     }
   },

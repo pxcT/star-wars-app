@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Constants
-import { APP_ROUTES } from './app.routes';
+import { APP_ROUTES_CONFIGURATION } from './app.routes';
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(APP_ROUTES)],
+  imports: [RouterModule.forRoot(APP_ROUTES_CONFIGURATION)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

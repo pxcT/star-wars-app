@@ -6,7 +6,7 @@ import { PlanetsRoutingModule } from '@app-planets/planets-routing.module';
         PlanetsRoutingModule
     ],
     exports: [],
-    declarations: [...PlanetsRoutingModule.components],
+    declarations: PlanetsRoutingModule.components,
     providers: [],
 })
 export class PlanetsModule { }
