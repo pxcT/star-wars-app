@@ -1,29 +1,34 @@
-import { IOptionColumn } from '@app-layout/sidebar-menu/interfaces/option-column.interface';
+import { IMenuItem } from '@app-layout/sidebar-menu/interfaces/menu-item.interface';
 import { MAIN_APP_ROUTES } from 'app/app.routes';
 
-export const STANDARD_MENU_CONFIG: IOptionColumn[] = [{
-    name: 'Planets',
+export const STANDARD_MENU_CONFIG: IMenuItem[] = [{
+    link: `${MAIN_APP_ROUTES.HOME}`,
+    text: 'Home',
     icon: '',
-    isActive: false,
-    route: MAIN_APP_ROUTES.PLANETS
+    name: 'Home'
 }, {
-    name: 'People',
+    link: `${MAIN_APP_ROUTES.PLANETS}`,
+    text: 'Planets',
     icon: '',
-    isActive: false,
-    route: MAIN_APP_ROUTES.PEOPLE
+    name: 'Planets'
 }, {
-    name: 'Vehicles',
+    link: `${MAIN_APP_ROUTES.PEOPLE}`,
+    text: 'People',
     icon: '',
-    isActive: false,
-    route: MAIN_APP_ROUTES.VEHICLES
+    name: 'People'
 }, {
-    name: 'Starships',
+    link: `${MAIN_APP_ROUTES.VEHICLES}`,
+    text: 'Vehicles',
     icon: '',
-    isActive: false,
-    route: MAIN_APP_ROUTES.STARSHIPS
+    name: 'Vehicles'
 }, {
-    name: 'Battlefield',
+    link: `${MAIN_APP_ROUTES.STARSHIPS}`,
+    text: 'Starships',
     icon: '',
-    isActive: false,
-    route: MAIN_APP_ROUTES.BATTLEFIELD
+    name: 'Starships'
+}, {
+    link: `${MAIN_APP_ROUTES.BATTLEFIELD}`,
+    text: 'Battlefield',
+    icon: '',
+    name: 'Battlefield'
 }]

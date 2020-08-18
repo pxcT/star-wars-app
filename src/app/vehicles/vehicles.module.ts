@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+import { VehiclesRoutingModule } from './vechicles-routing.module';
 
 @NgModule({
-    imports: [],
+    imports: [
+        VehiclesRoutingModule
+    ],
     exports: [],
-    declarations: [],
+    declarations: VehiclesRoutingModule.components,
     providers: [],
 })
 export class VehiclesModule { }

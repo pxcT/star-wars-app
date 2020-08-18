@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
+import { PeopleDashboardComponent } from '@app-people/people-dashboard/people-dashboard.component';
+import { PEOPLE_ROUTES } from '@app-people/people.routes';
 @NgModule({
-    imports: [],
-    exports: []
+    imports: [RouterModule.forChild(PEOPLE_ROUTES)],
+    exports: [RouterModule]
 })
 export class PeopleRoutingModule { 
-    static components = [];
+    static components = [PeopleDashboardComponent];
 }

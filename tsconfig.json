@@ -25,18 +25,24 @@
       "@app-shared/*": [
           "app/shared/*"
       ],
-      "@app-planets/*": [
-          "app/planets/*"
-      ],
       "@app-home/*": [
           "app/home/*"
+      ],
+      "@app-planets/*": [
+          "app/planets/*"
       ],
       "@app-people/*": [
           "app/people/*"
       ],
       "@app-vehicles/*": [
           "app/vehicles/*"
-      ]
+      ],
+      "@app-battlefield/*": [
+          "app/battlefield/*"
+      ],
+      "@app-starships/*": [
+          "app/starships/*"
+      ],
     }
   },
   "angularCompilerOptions": {
