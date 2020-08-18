@@ -1,4 +1,4 @@
-import { BattlefieldDashboardComponent } from '@app-battlefield/battlefield-dashboard/battlefield-dashboard.component';
+import { BattlefieldDashboardComponent } from '@app-battlefield/features/battlefield-dashboard/battlefield-dashboard.component';
 
 export const BATTLEFIELD_ROUTES = [{
     path: '',

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { StarshipsDashboardComponent } from '@app-starships/starships-dashboard/starships-dashboard.component';
+import { StarshipsDashboardComponent } from '@app-starships/features/starships-dashboard/starships-dashboard.component';
 import { STARSHIPS_ROUTES } from '@app-starships/starships.routes';
 
 @NgModule({

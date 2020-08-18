@@ -2,7 +2,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 // Components
-import { BattlefieldDashboardComponent } from '@app-battlefield/battlefield-dashboard/battlefield-dashboard.component';
+import { BattlefieldDashboardComponent } from '@app-battlefield/features/battlefield-dashboard/battlefield-dashboard.component';
 
 // Configs
 import { BATTLEFIELD_ROUTES } from '@app-battlefield/battlefield.routes';

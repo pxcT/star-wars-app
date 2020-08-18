@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 // User-created moduls
 import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from '@app-core/core.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -30,7 +31,8 @@ import { SidebarMenuComponent } from '@app-layout/sidebar-menu/sidebar-menu.comp
         BrowserAnimationsModule,
         MatToolbarModule,
         MatSidenavModule,
-        HttpClientModule
+        HttpClientModule,
+        CoreModule
     ],
     providers: [],
     bootstrap: [AppComponent]
