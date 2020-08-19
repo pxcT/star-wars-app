@@ -1,10 +1,7 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-
-
 import { USERS } from '@app-auth/services/mock.data';
-import { AuthService } from '@app-auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'login-component',
@@ -18,7 +15,7 @@ export class LoginComponentComponent implements OnInit {
 
     private mockUsers = USERS;
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+    constructor(private formBuilder: FormBuilder, private router: Router) { }
 
     ngOnInit(): void {
         this.loginForm = this.formBuilder.group({
@@ -26,7 +23,7 @@ export class LoginComponentComponent implements OnInit {
             password: ['', Validators.required]
         });
     }
-
+    
     public onSubmit() {
         if (this.loginForm.status === 'VALID') {
             const username = this.loginForm.controls.username.value;
@@ -36,7 +33,7 @@ export class LoginComponentComponent implements OnInit {
             
             if (foundUser) {
                 window.localStorage.setItem('userId', '324098-21321-dsad-32c23-21es4');
-                
+                window.location.reload(); // quick-fix loading (simulate oauth-authentication)
             }
         }
     }

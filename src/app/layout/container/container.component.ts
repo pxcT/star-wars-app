@@ -21,10 +21,9 @@ export class ContainerComponent implements OnInit {
     // stw-sidebar-menu @Inputs()
     public menuConfiguration = STANDARD_MENU_CONFIG;
 
-    constructor() {  
+    constructor(private authService: AuthService) {  
         this.isLoggedIn = !!window.localStorage.getItem('userId');
     }
 
-    ngOnInit() { 
-    }
+    ngOnInit() {  }
 }

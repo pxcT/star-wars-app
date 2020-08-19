@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
+
+    private loginStateSubject = new Subject<boolean>()
+	public loginState = this.loginStateSubject.asObservable();
     
     constructor() { }
 
-    public isLoogedIn(): boolean {
-        const id = window.localStorage.getItem('userId');
-        return id ? true: false;
-    }
+   public changeLoginState(value) {
+       this.loginStateSubject.next(true);
+   }
 }
