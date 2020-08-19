@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // User-defined modules
 import { PlanetsRoutingModule } from '@app-planets/planets-routing.module';
+import { SharedModule } from '@app-shared/shared.module';
 
-// Material
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
     imports: [
         PlanetsRoutingModule,
-        MatTableModule,
-        MatPaginatorModule
+        SharedModule
     ],
     exports: [],
     declarations: PlanetsRoutingModule.components,

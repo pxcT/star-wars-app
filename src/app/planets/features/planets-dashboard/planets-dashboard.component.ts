@@ -1,13 +1,23 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { Subject } from 'rxjs';
 
 // Store
-import { StoreState } from '@app-store/store-state.model';
 import { Store } from '@ngrx/store';
-import { PlanetsService } from '@app-planets/planets.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { Planet } from '@app-planets/models/planet.model';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { Actions } from '@ngrx/effects';
+import { StoreState } from '@app-store/store-state.model';
 
+import * as Planets from '@app-store/actions/planets.actions';
+
+// Configs
+import { PLANET_TABLE_CONFIG } from '@app-planets/features/planets-dashboard/planet-table.config';
+
+// Services
+import { ActionsListenerService, ActionsListener } from '@app-core/services/actions-listener.service';
+
+// Models
+import { Planet } from '@app-planets/models/planet.model';
+import { ILoadedItems } from '@app-shared/models/loaded-items.interface';
 
 @Component({
     selector: 'planets-dashboard',
@@ -15,33 +25,31 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
     styleUrls: ['./planets-dashboard.component.scss']
 })
 export class PlanetsDashboardComponent implements OnInit {
+    public config = JSON.parse(JSON.stringify(PLANET_TABLE_CONFIG));
+    public data: Array<Planet> = [];
 
-    private data = [];
-    public dataSource = new MatTableDataSource<Planet>(this.data);
+    private destroy$ = new Subject<boolean>();
 
-    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-    displayedColumns: string[] = ['name', 'rotation_period', 'orbital_period', 'diameter'];
 
-    constructor(private store$: Store<StoreState>, private planetsService: PlanetsService) { }
+    constructor(private store$: Store<StoreState>, private actionsListenerService: ActionsListenerService, private actions$: Actions) { }
 
     ngOnInit(): void {
-        this.planetsService.getPlanetsByPage(1).subscribe((data) => {
-            const myData = Object.keys(data.results).map(key => {
-                return data.results[key];
-            })
-            this.data = [...myData];
-            this.dataSource.data = this.data;
-        })
+        this.prepareActionListenerService();
+        this.store$.dispatch(new Planets.ItemsLoaded(1));
     }
 
-    public changePage(e: PageEvent) {
-        this.planetsService.getPlanetsByPage(e.pageIndex + 1).subscribe((data) => {
-            const myData = Object.keys(data.results).map(key => {
-                return data.results[key];
-            })
-            this.data = [...myData];
-            this.dataSource.data = this.data;
-        })
+    private prepareActionListenerService(): void {
+        this.actionsListenerService.buildParams(new ActionsListener(this.actions$, this.destroy$));
+        this.actionsListenerService.trackStoreAction(Planets.ITEMS_LOADED_SUCCESS, this.onItemsLoadedSucces.bind(this));
+    }
+
+    public onPageChange(e: PageEvent) {
+        this.store$.dispatch(new Planets.ItemsLoaded(e.pageIndex + 1));
+    }
+
+    private onItemsLoadedSucces(storeAction: { type: string, payload: ILoadedItems<Planet> }) {
+        const { type, payload } = storeAction;
+        this.data = [...payload.results];
     }
 
 }

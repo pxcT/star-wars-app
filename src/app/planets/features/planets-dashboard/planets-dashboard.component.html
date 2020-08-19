@@ -1,39 +1,5 @@
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="rotation_period">
-        <th mat-header-cell *matHeaderCellDef> Rotation Period </th>
-        <td mat-cell *matCellDef="let element"> {{element.rotation_period}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="orbital_period">
-        <th mat-header-cell *matHeaderCellDef> Orbital Period </th>
-        <td mat-cell *matCellDef="let element"> {{element.orbital_period}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="diameter">
-        <th mat-header-cell *matHeaderCellDef> Diameter </th>
-        <td mat-cell *matCellDef="let element"> {{element.diameter}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-
-    <mat-paginator 
-        [pageSizeOptions]="[60]" 
-        [length]="360" 
-        (page)="changePage($event)"
-        showFirstLastButtons
-    ></mat-paginator>
-  </div>
-  
-  
+<stw-table
+    (pageChange)="onPageChange($event)"
+    [data]="data"
+    [config]="config"
+></stw-table>

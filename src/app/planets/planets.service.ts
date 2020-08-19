@@ -25,7 +25,7 @@ export class PlanetsService {
         return this.apiService.getLoading(`${planetsUrl}/?page=${pageNumber}`).pipe(
             map((data) => {
                 const parsedResults = data.results.map((planet: IPlanet) => new Planet(planet));
-                data.results = {...parsedResults};
+                data.results = [...parsedResults];
 
                 return data;
             }),

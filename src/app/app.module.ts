@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from '@app-layout/container/container.component';
 import { TopbarComponent } from '@app-layout/topbar/topbar.component';
 import { SidebarMenuComponent } from '@app-layout/sidebar-menu/sidebar-menu.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,7 @@ import { SidebarMenuComponent } from '@app-layout/sidebar-menu/sidebar-menu.comp
         MatSidenavModule,
         HttpClientModule,
         CoreModule,
-        AppStoreModule
+        AppStoreModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
