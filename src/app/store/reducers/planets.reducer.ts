@@ -1,5 +1,6 @@
 import { StoreState } from '@app-store/store-state.model';
 import * as Planets from '@app-store/actions/planets.actions';
+import { STORE_MODES_ENUM } from '@app-store/store-modes.enum';
 
 export class PlanetsState extends StoreState {
     constructor() {
@@ -10,8 +11,13 @@ export class PlanetsState extends StoreState {
 export function planetsReducer(state = new PlanetsState(), action: Planets.ActionType) {
     switch (action.type) {
         case Planets.ITEMS_LOADED_SUCCESS: {
+            const { payload } = action;
+            const { count, next, previous, results } = payload;
             return {
-                ...state
+                ...state,
+                items: results,
+                count,
+                mode: STORE_MODES_ENUM.LOADED
             }
         }
 

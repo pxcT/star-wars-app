@@ -30,7 +30,6 @@ export class PlanetsDashboardComponent implements OnInit {
 
     private destroy$ = new Subject<boolean>();
 
-
     constructor(private store$: Store<StoreState>, private actionsListenerService: ActionsListenerService, private actions$: Actions) { }
 
     ngOnInit(): void {
@@ -48,7 +47,7 @@ export class PlanetsDashboardComponent implements OnInit {
     }
 
     private onItemsLoadedSucces(storeAction: { type: string, payload: ILoadedItems<Planet> }) {
-        const { type, payload } = storeAction;
+        const { payload } = storeAction;
         this.data = [...payload.results];
     }
 
