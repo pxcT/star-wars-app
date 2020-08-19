@@ -1,16 +1,18 @@
-<div class="main-container">
+<div *ngIf="isLoggedIn" class="main-container">
     <stw-topbar></stw-topbar>
     <div class="view-wrapper">
         <mat-sidenav-container class="sidenav-container">
             <mat-sidenav
                 mode="side"
                 [(opened)]="opened">
-                <stw-sidebar-menu [menuConfiguration]="menuConfiguration">
-                </stw-sidebar-menu>
+                <stw-sidebar-menu [menuConfiguration]="menuConfiguration"></stw-sidebar-menu>
             </mat-sidenav>
             <mat-sidenav-content>
                 <router-outlet></router-outlet>
             </mat-sidenav-content>
         </mat-sidenav-container>
     </div>
+</div>
+<div *ngIf="!isLoggedIn" class="main-container">
+    <router-outlet></router-outlet>
 </div>

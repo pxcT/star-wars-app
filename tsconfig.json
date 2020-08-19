@@ -45,6 +45,9 @@
       ],
       "@app-store/*": [
           "app/store/*"
+      ],
+      "@app-auth/*": [
+          "app/auth/*"
       ]
     }
   },
