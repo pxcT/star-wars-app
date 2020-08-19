@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 
@@ -24,7 +24,7 @@ import { PEOPLE_TABLE_CONFIG } from '@app-people/configs/people-table.config';
     styleUrls: ['./people-dashboard.component.scss'],
     providers: [ActionsListenerService]
 })
-export class PeopleDashboardComponent implements OnInit {
+export class PeopleDashboardComponent implements OnInit, OnDestroy {
     public config = JSON.parse(JSON.stringify(PEOPLE_TABLE_CONFIG));
     public data: ILoadedItems<People>;
 
@@ -49,6 +49,11 @@ export class PeopleDashboardComponent implements OnInit {
     private onItemsLoadedSucces(storeAction: { type: string, payload: ILoadedItems<People> }) {
         const { payload } = storeAction;
         this.data = { ...payload };
+    }
+
+    ngOnDestroy() {
+        this.destroy$.next(true);
+        this.destroy$.complete();
     }
 
 }

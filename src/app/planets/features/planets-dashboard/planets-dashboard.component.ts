@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
 
@@ -25,7 +25,7 @@ import { ILoadedItems } from '@app-shared/models/loaded-items.interface';
     styleUrls: ['./planets-dashboard.component.scss'],
     providers: [ActionsListenerService]
 })
-export class PlanetsDashboardComponent implements OnInit {
+export class PlanetsDashboardComponent implements OnInit, OnDestroy {
     public config = JSON.parse(JSON.stringify(PLANET_TABLE_CONFIG));
     public data: ILoadedItems<Planet>;
 
@@ -52,4 +52,8 @@ export class PlanetsDashboardComponent implements OnInit {
         this.data = { ...payload };
     }
 
+    ngOnDestroy() {
+        this.destroy$.next(true);
+        this.destroy$.complete();
+    }
 }

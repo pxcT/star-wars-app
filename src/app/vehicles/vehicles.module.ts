@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
-import { VehiclesRoutingModule } from './vechicles-routing.module';
+
+// User-defined modules
+import { SharedModule } from '@app-shared/shared.module';
+import { VehiclesRoutingModule } from '@app-vehicles/vechicles-routing.module';
 
 @NgModule({
     imports: [
-        VehiclesRoutingModule
+        VehiclesRoutingModule,
+        SharedModule
     ],
     exports: [],
     declarations: VehiclesRoutingModule.components,
