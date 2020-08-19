@@ -12,14 +12,21 @@ import { MatTableDataSource } from '@angular/material/table';
 export class StwTableComponent {
     @Input() config: IStwTableConfig;
     @Input() displayedColumns: Array<string>;
-    @Input() set data(newData) {
-        this.dataSource.data = [...newData];
-        this._data = [...newData];
+    @Input() set data(gridData) {
+        if (!gridData) {
+            return;
+        }
+
+        this.dataSource.data = [...gridData.results];
+        this.count = gridData.count;
+        this._data = [...gridData.results];
     };
 
     @Output() pageChange = new EventEmitter<PageEvent>();
 
     public dataSource = new MatTableDataSource<any>([]);
+    public count;
+
     private _data = [];
 
     constructor() { }

@@ -20,9 +20,12 @@ export class ActionsListener implements IActionsListenerParams {
     }
 }
 
-@Injectable({
-	providedIn: 'root'
-})
+/**
+ * This service will not be added to the app-store.module because
+ * we need a new instance for each time we listen for changes
+ * Components use differents store states and also have different destroy time
+ */
+@Injectable()
 export class ActionsListenerService {
 
 	private actions$: Actions;

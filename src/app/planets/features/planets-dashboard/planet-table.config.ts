@@ -17,6 +17,18 @@ export const PLANET_TABLE_CONFIG: IStwTableConfig = {
         columnDef: 'diameter',
         columnName: 'Diameter',
         key: 'diameter'
+    }, {
+        columnDef: 'climate',
+        columnName: 'Climate',
+        key: 'climate'
+    }, {
+        columnDef: 'gravity',
+        columnName: 'Gravity',
+        key: 'gravity'
+    }, {
+        columnDef: 'terrain',
+        columnName: 'Terrain',
+        key: 'terrain'
     }],
-    displayedColumns: ['name', 'rotation_period', 'orbital_period', 'diameter']
+    displayedColumns: ['name', 'rotation_period', 'orbital_period', 'diameter', 'climate', 'gravity', 'terrain']
 }

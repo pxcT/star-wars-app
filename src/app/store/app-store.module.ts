@@ -5,13 +5,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { PlanetsEffects } from '@app-store/effects';
-import { planetsReducer } from '@app-store/reducers';
+import { PlanetsEffects, PeopleEffects } from '@app-store/effects';
+import { planetsReducer, peopleReducer } from '@app-store/reducers';
 
 @NgModule({
     imports: [
         StoreModule.forRoot({
-            planets: planetsReducer
+            planets: planetsReducer,
+            people: peopleReducer
         }, {
 			runtimeChecks: {
 				strictStateImmutability: false,
@@ -19,7 +20,8 @@ import { planetsReducer } from '@app-store/reducers';
 			}
         }),
         EffectsModule.forRoot([
-            PlanetsEffects
+            PlanetsEffects,
+            PeopleEffects
         ]),
 		StoreDevtoolsModule.instrument({
 			maxAge: 25 //  Retains last 25 states

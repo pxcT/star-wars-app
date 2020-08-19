@@ -13,7 +13,7 @@ import * as Planets from '@app-store/actions/planets.actions';
 import { PLANET_TABLE_CONFIG } from '@app-planets/features/planets-dashboard/planet-table.config';
 
 // Services
-import { ActionsListenerService, ActionsListener } from '@app-core/services/actions-listener.service';
+import { ActionsListenerService, ActionsListener } from '@app-store/services/actions-listener.service';
 
 // Models & Interfaces
 import { Planet } from '@app-planets/models/planet.model';
@@ -22,11 +22,12 @@ import { ILoadedItems } from '@app-shared/models/loaded-items.interface';
 @Component({
     selector: 'planets-dashboard',
     templateUrl: './planets-dashboard.component.html',
-    styleUrls: ['./planets-dashboard.component.scss']
+    styleUrls: ['./planets-dashboard.component.scss'],
+    providers: [ActionsListenerService]
 })
 export class PlanetsDashboardComponent implements OnInit {
     public config = JSON.parse(JSON.stringify(PLANET_TABLE_CONFIG));
-    public data: Array<Planet> = [];
+    public data: ILoadedItems<Planet>;
 
     private destroy$ = new Subject<boolean>();
 
@@ -48,7 +49,7 @@ export class PlanetsDashboardComponent implements OnInit {
 
     private onItemsLoadedSucces(storeAction: { type: string, payload: ILoadedItems<Planet> }) {
         const { payload } = storeAction;
-        this.data = [...payload.results];
+        this.data = { ...payload };
     }
 
 }
