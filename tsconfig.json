@@ -43,6 +43,9 @@
       "@app-starships/*": [
           "app/starships/*"
       ],
+      "@app-store/*": [
+          "app/store/*"
+      ]
     }
   },
   "angularCompilerOptions": {

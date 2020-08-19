@@ -8,8 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-// User-created moduls
+// User-defined modules
 import { AppRoutingModule } from './app-routing.module';
+import { AppStoreModule } from '@app-store/app-store.module';
 import { CoreModule } from '@app-core/core.module';
 
 // Components
@@ -32,7 +33,8 @@ import { SidebarMenuComponent } from '@app-layout/sidebar-menu/sidebar-menu.comp
         MatToolbarModule,
         MatSidenavModule,
         HttpClientModule,
-        CoreModule
+        CoreModule,
+        AppStoreModule
     ],
     providers: [],
     bootstrap: [AppComponent]

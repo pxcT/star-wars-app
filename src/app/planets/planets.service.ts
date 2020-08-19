@@ -40,7 +40,7 @@ export class PlanetsService {
      * https://swapi.dev/api/planets/:id
      * @param id 
      */
-    public getPlanetById(id: string): Observable<Planet> {
+    public getPlanetById(id): Observable<Planet> {
         return this.apiService.getLoading(`${planetsUrl}/${id}`).pipe(
             map((planet: IPlanet) => new Planet(planet)),
             catchError((err) => throwError(err))
