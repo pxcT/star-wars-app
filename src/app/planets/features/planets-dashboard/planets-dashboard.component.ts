@@ -15,7 +15,7 @@ import { PLANET_TABLE_CONFIG } from '@app-planets/features/planets-dashboard/pla
 // Services
 import { ActionsListenerService, ActionsListener } from '@app-core/services/actions-listener.service';
 
-// Models
+// Models & Interfaces
 import { Planet } from '@app-planets/models/planet.model';
 import { ILoadedItems } from '@app-shared/models/loaded-items.interface';
 
